@@ -1,5 +1,5 @@
 /*
- *  simpleplayer.h
+ *  testplayer.h
  *  PlayingCard
  *
  *  Created by 下薗 真一 on 09/04/12.

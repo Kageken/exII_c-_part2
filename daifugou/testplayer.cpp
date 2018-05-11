@@ -1,5 +1,5 @@
 /*
- *  SimplePlayer.cpp
+ *  testPlayer.cpp
  *  PlayingCard
  *
  *  Created by 下薗 真一 on 09/04/12.
@@ -49,10 +49,8 @@ bool TestPlayer::follow(const GameStatus & gstat, CardSet & cards) {
 	for(myStrength = strength(leadRank) + 1 ; myStrength < Card::RANK_JOKER + 1 ; ++myStrength) {
 		if ( histo[myStrength] == 0 )
 			continue;
-		if ( (leadSize == 0) && (checkPair(histo)) && (histo[myStrength] >= 2) ) {
+		if ( leadSize == 0 ) {
 			break;
-		} else if (leadSize == 0 && temp == 0) {
-		        temp = myStrength;
 		}
 		if ( histo[myStrength] < leadSize ) {
 			continue;
@@ -60,14 +58,10 @@ bool TestPlayer::follow(const GameStatus & gstat, CardSet & cards) {
 		if ( histo[myStrength] == leadSize ) {
 		        break;
 		}
-		/*
 		if ( histo[myStrength] >= leadSize ) {
 			break;
-			}*/
+		}
 	}
-	if ( !checkPair(histo) ) {
-	  myStrength = temp;
-        }
 	// myStrength == 16 はパス
 	if ( myStrength < Card::RANK_JOKER + 1 ) {
 		// 有効なカード
